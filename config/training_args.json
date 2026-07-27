@@ -1,0 +1,51 @@
+{
+  "model": {
+    "base_model": "Qwen/Qwen2.5-3B-Instruct",
+    "max_seq_length": 256,
+    "load_in_4bit": true,
+    "dtype": null
+  },
+  "lora_config": {
+    "r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "use_gradient_checkpointing": "unsloth"
+  },
+  "training_args": {
+    "output_dir": "./qwen-support-unsloth",
+    "per_device_train_batch_size": 8,
+    "per_device_eval_batch_size": 8,
+    "gradient_accumulation_steps": 2,
+    "num_train_epochs": 1,
+    "learning_rate": 0.0002,
+    "lr_scheduler_type": "cosine",
+    "warmup_steps": 10,
+    "logging_steps": 10,
+    "eval_strategy": "steps",
+    "eval_steps": 50,
+    "save_strategy": "steps",
+    "save_steps": 50,
+    "save_total_limit": 2,
+    "optim": "adamw_8bit",
+    "fp16": "auto (not bf16_supported)",
+    "bf16": "auto (bf16_supported)",
+    "max_length": 256,
+    "packing": true,
+    "report_to": "none"
+  },
+  "dataset": {
+    "name": "bitext/Bitext-customer-support-llm-chatbot-training-dataset",
+    "train_size": 22166,
+    "val_size": 1231,
+    "test_size": 1232
+  }
+}
