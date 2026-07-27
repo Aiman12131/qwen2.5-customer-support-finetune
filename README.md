@@ -60,7 +60,7 @@ model = FastLanguageModel.get_peft_model(
 | LoRA dropout | 0.05 |
 | Target modules | q/k/v/o_proj, gate/up/down_proj |
 
-Full config: [`configs/training_args.json`](configs/training_args.json)
+Full config: [`config/training_args.json`](configs/training_args.json)
 
 ## Setup
 
