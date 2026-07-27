@@ -72,25 +72,12 @@ pip install -r requirements.txt
 
 ### Training & Validation Loss
 
-![Training and Validation Loss](assets/loss_curve.png)
+![Training and Validation Loss](assets/results.png)
 
 Loss dropped sharply from ~2.08 at step 10 to under 0.8 by step 50, then converged 
 smoothly to ~0.55 by step 600 and remained stable through the rest of training. 
 Validation loss tracked training loss closely throughout, with no divergence — 
 indicating good generalization and no overfitting within the single epoch.
-
-## Inference
-
-Sample generations from the fine-tuned model on held-out customer support queries:
-
-**Input:** "I want to cancel my order, how do I do that?"  
-**Output:** *(paste your actual output here)*
-
-**Input:** "My package arrived damaged, what should I do?"  
-**Output:** *(paste your actual output here)*
-
-**Input:** "Do you offer refunds for digital products?"  
-**Output:** *(paste your actual output here)*
 
 ## Note on Checkpoints
 
